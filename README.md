@@ -1,6 +1,7 @@
 # BoB_Image-Removal-Detection
 
 ## Installing Dependencies
+
 ```
 pip install wand
 pip install Pillow
