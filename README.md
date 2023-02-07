@@ -1,5 +1,6 @@
 # BoB_Image-Removal-Detection
 
+
 ## Installing Dependencies
 
 ```
