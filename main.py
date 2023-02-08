@@ -1,6 +1,6 @@
 from Noise_Analysis import Noise_Analysis
 from ELA import ELA
-
+from Luminance_Gradient import Luminance_Gradient
 def start():
     print("/$$$$$$$            /$$$$$$$     ")                                                                                                                                                                                          
     print("| $$__  $$          | $$__  $$   ")                                                                                                                                                                                         
@@ -26,3 +26,4 @@ def start():
 start()
 ELA("../13/PIC 002.jpg")
 Noise_Analysis("../13/PIC 002.jpg")
+Luminance_Gradient("../13/PIC 002.jpg")

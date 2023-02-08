@@ -5,5 +5,5 @@ def Noise_Analysis(path):
     filename = path
     name = os.path.basename(path).split('/')[-1]
     with Image(filename = filename) as img:
-        img.noise("laplacian", attenuate = 10.0) #attenuate값조정
+        img.noise("laplacian", attenuate = 10.0)
         img.save(filename= './Output/Noise_'+name)
