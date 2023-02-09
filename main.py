@@ -1,6 +1,8 @@
 from Noise_Analysis import Noise_Analysis
 from ELA import ELA
 from Luminance_Gradient import Luminance_Gradient
+from PCA import PCA_compress_image
+
 from matplotlib import pyplot as plt
 
 def start():
@@ -29,6 +31,7 @@ start()
 ELA("../13/PIC 002.jpg")
 Noise_Analysis("../13/PIC 002.jpg")
 Luminance_Gradient("../13/PIC 002.jpg")
+PCA_compress_image("../13/PIC 002.jpg")
 
 
 
@@ -48,20 +51,18 @@ img3= plt.imread("./Output/Luminance_PIC 002.jpg")
 plt.subplot(2,3,2),plt.imshow(img3,cmap = 'gray')
 plt.title('Luminance-Gradient'), plt.xticks([]), plt.yticks([])
 
-img3= plt.imread("./Output/Luminance_PIC 002.jpg")
-plt.subplot(2,3,5),plt.imshow(img3,cmap = 'gray')
-plt.title('Luminance-Gradient'), plt.xticks([]), plt.yticks([])
+img4= plt.imread("./Output/PCA_PIC 002.jpg")
+plt.subplot(2,3,5),plt.imshow(img4,cmap = 'gray')
+plt.title('Principle Component Analysis'), plt.xticks([]), plt.yticks([])
 
 
-img3= plt.imread("./Output/Luminance_PIC 002.jpg")
-plt.subplot(2,3,3),plt.imshow(img3,cmap = 'gray')
-plt.title('Luminance-Gradient'), plt.xticks([]), plt.yticks([])
+# img4= plt.imread("./Output/PCA_PIC 002.jpg")
+# plt.subplot(2,3,3),plt.imshow(img4,cmap = 'gray')
+# plt.title('Principle Component Analysis'), plt.xticks([]), plt.yticks([])
 
 
-img3= plt.imread("./Output/Luminance_PIC 002.jpg")
-plt.subplot(2,3,6),plt.imshow(img3,cmap = 'gray')
-plt.title('Luminance-Gradient'), plt.xticks([]), plt.yticks([])
-
-
+# img4= plt.imread("./Output/PCA_PIC 002.jpg")
+# plt.subplot(2,3,6),plt.imshow(img4,cmap = 'gray')
+# plt.title('Principle Component Analysis'), plt.xticks([]), plt.yticks([])
 
 plt.show()
