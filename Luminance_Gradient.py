@@ -8,5 +8,5 @@ def Luminance_Gradient(path):
     filename = os.path.basename(path).split('/')[-1]
     img = cv.imread(name,0)
     laplacian = cv.Laplacian(img,cv.CV_64F)
-    sobelx = cv.Sobel(img, cv.CV_64F, 1,0, ksize=5)
+    sobelx = cv.Sobel(img, cv.CV_8U, 1, 0, ksize=5)
     cv.imwrite('./Output/Luminance_'+filename, sobelx)

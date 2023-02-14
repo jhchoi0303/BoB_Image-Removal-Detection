@@ -2,11 +2,14 @@ from PIL import Image, ImageChops, ImageEnhance
 import os
 
 
-def convert_to_ela_image(path, quality):
+def convert_to_ela_image(path, degree):
     filename = path
-    resaved_filename = filename.split('.')[0] + '.resaved.jpg'
+    resaved_filename = filename.split('/')[-1] + '.resaved.jpg'
     im = Image.open(filename).convert('RGB')
-    im.save(resaved_filename, 'JPEG', quality=quality)
+    
+    print(degree)
+
+    im.save(resaved_filename, 'JPEG', quality=degree)
     resaved_im = Image.open(resaved_filename)
     
     ela_im = ImageChops.difference(im, resaved_im)
@@ -20,7 +23,8 @@ def convert_to_ela_image(path, quality):
     
     return ela_im
 
-def ELA(path):
+def ELA(path, scale):
     name = os.path.basename(path).split('/')[-1]
-    img = convert_to_ela_image(path, 1)  #두번쨰인자조정
-    img.save('./Output/ELA_'+name,quality = 100)
+    degree = scale
+    img = convert_to_ela_image(path, degree)  #두번쨰인자조정
+    img.save('./Output/ELA_'+name, quality = 100)

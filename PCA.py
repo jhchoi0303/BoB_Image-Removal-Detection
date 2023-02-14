@@ -6,8 +6,8 @@ import os
 import skimage #pip install scikit-image
 
 
-def PCA_compress_image(path):
-    pca = PCA(n_components=100) #n_components
+def PCA_compress_image(path, degree):
+    pca = PCA(n_components=degree) #n_components
     image = skimage.io.imread(path)
     image = rgb2gray(image)
     image_compressed = pca.fit_transform(image)
