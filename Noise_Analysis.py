@@ -1,4 +1,4 @@
-from wand.image import Image #https://imagemagick.org/script/download.php#windows #pip install wand #https://www.geeksforgeeks.org/python-noise-function-in-wand/
+from wand.image import Image 
 import os
 
 def Noise_Analysis(path, degree):

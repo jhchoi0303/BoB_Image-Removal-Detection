@@ -3,11 +3,10 @@ from sklearn.decomposition import PCA
 from skimage.color import rgb2gray
 import cv2 as cv
 import os
-import skimage #pip install scikit-image
-
+import skimage
 
 def PCA_compress_image(path, degree):
-    pca = PCA(n_components=degree) #n_components
+    pca = PCA(n_components=degree)
     image = skimage.io.imread(path)
     image = rgb2gray(image)
     image_compressed = pca.fit_transform(image)

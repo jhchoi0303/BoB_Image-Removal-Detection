@@ -5,9 +5,10 @@ from PCA import PCA_compress_image
 import os
 from matplotlib import pyplot as plt
 from matplotlib.widgets import Slider
-
+import sys
 
 def start():
+    print("Locate Image file path")
     print("/$$$$$$$            /$$$$$$$     ")                                                                                                                                                                                          
     print("| $$__  $$          | $$__  $$   ")                                                                                                                                                                                         
     print("| $$  \ $$  /$$$$$$ | $$  \ $$   ")                                                                                                                                                                                           
@@ -32,15 +33,23 @@ def start():
 
 
 start()
-path = "../13/PIC 008.jpg"
 
+path = sys.argv[1]
+
+if ( ((path.lower().endswith(".png")) and (path.lower().endswith(".jpg")) and (path.lower().endswith(".jpeg"))) ):
+    print("Only image files!")
+    exit(0)
+
+
+ELA(path,int(100))
+Noise_Analysis(path, int(100))
 Luminance_Gradient(path)
-
+PCA_compress_image(path, int(100))
 
 
 def update(val):
     sliderValue_ELA = ELA_Slider.val
-    print(sliderValue_ELA)
+    #print(sliderValue_ELA)
     
     ELA(path,int(sliderValue_ELA))
     img1= plt.imread("./Output/ELA_"+filename)
@@ -48,7 +57,7 @@ def update(val):
     plt.title('ELA'), plt.xticks([]), plt.yticks([])
     
     sliderValue_NA = NA_Slider.val
-    print(sliderValue_NA)
+    #print(sliderValue_NA)
     
     Noise_Analysis(path, int(sliderValue_NA))
     img2= plt.imread("./Output/Noise_"+filename)
@@ -57,7 +66,7 @@ def update(val):
 
     
     sliderValue_PCA = PCA_Slider.val
-    print(sliderValue_PCA)
+    #print(sliderValue_PCA)
     PCA_compress_image(path, int(sliderValue_PCA))
     img4= plt.imread("./Output/PCA_"+filename)
     plt.subplot(2,3,5),plt.imshow(img4,cmap = 'gray')
@@ -92,16 +101,15 @@ plt.title('Principle Component Analysis'), plt.xticks([]), plt.yticks([])
 
 
 ELAx_Slider = plt.axes([0.75, 0.75, 0.2, 0.05])
-ELA_Slider  = Slider(ELAx_Slider,'ELA slider', 0,100,  valinit=10)
+ELA_Slider  = Slider(ELAx_Slider,'ELA slider', 0,200,  valinit=100)
 
 ELA_Slider.on_changed(update)
 
 
 
 
-
-NAx_Slider = plt.axes([0.75, 0.65, 0.2, 0.05])
-NA_Slider  = Slider(NAx_Slider,'NA slider', 0,100,  valinit=20)
+NAx_Slider = plt.axes([0.75, 0.675, 0.2, 0.05])
+NA_Slider  = Slider(NAx_Slider,'NA slider', 0,200,  valinit=100)
 
 NA_Slider.on_changed(update)
 
@@ -109,7 +117,7 @@ NA_Slider.on_changed(update)
 
 
 PCAx_Slider = plt.axes([0.75, 0.6, 0.2, 0.05])
-PCA_Slider  = Slider(PCAx_Slider,'PCA slider', 0,100,  valinit=10)
+PCA_Slider  = Slider(PCAx_Slider,'PCA slider', 0,500,  valinit=10)
 PCA_Slider.on_changed(update)
 
 

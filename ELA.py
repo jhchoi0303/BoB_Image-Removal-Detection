@@ -21,10 +21,12 @@ def convert_to_ela_image(path, degree):
     scale = 255.0 / max_diff
     ela_im = ImageEnhance.Brightness(ela_im).enhance(scale)
     
+    os.remove(resaved_filename, dir_fd=None)
+    
     return ela_im
 
 def ELA(path, scale):
     name = os.path.basename(path).split('/')[-1]
     degree = scale
-    img = convert_to_ela_image(path, degree)  #두번쨰인자조정
+    img = convert_to_ela_image(path, degree) 
     img.save('./Output/ELA_'+name, quality = 100)
